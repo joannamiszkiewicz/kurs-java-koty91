@@ -43,6 +43,12 @@
             <version>5.3.9</version>
         </dependency>
         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>5.3.9</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.apache.taglibs</groupId>
             <artifactId>taglibs-standard-spec</artifactId>
             <version>1.2.5</version>
@@ -65,18 +71,20 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>7.0.1.Final</version>
+            <version>5.4.1.Final</version>
         </dependency>
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
             <version>2.0.1.Final</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
             <version>5.3.9</version>
         </dependency>
+
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc8</artifactId>
@@ -84,6 +92,7 @@
             <scope>system</scope>
             <systemPath>C:/Oracle/ojdbc8-full/ojdbc8.jar</systemPath>
         </dependency>
+
         <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-core</artifactId>
@@ -94,6 +103,7 @@
                 <artifactId>hibernate-entitymanager</artifactId>
                 <version>5.5.4.Final</version>
         </dependency>
+
     </dependencies>
 
     <properties>

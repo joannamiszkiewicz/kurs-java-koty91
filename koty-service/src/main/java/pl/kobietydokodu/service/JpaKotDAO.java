@@ -35,20 +35,12 @@ public class JpaKotDAO implements KotDAOInterf{
     @Override
     @Transactional
     public boolean dodajKota(Kot kot) {
-//        System.out.println(kot.przedstawSiePelne());
         boolean isCatNew = true;
-//        Query query1 = entityManagerFactory.createQuery("select k from Kot k");
         String sel = "from Kot k where k.name = :koci_name and k.catOwner = :koci_catOwner";
         Query query1 = entityManagerFactory.createQuery(sel);
         query1.setParameter("koci_name", kot.getName());
         query1.setParameter("koci_catOwner", kot.getCatOwner());
         List<Kot> koty = query1.getResultList();
-//        for(Kot k: koty) {
-//            System.out.println(k.przedstawSie());
-//            if ((k.getName().equals(kot.getName()))
-//                    && (k.getCatOwner().equals(kot.getCatOwner()))) {
-//                System.out.println("podany kot"+kot.przedstawSie());
-//                System.out.println("kot z bazy"+k.przedstawSie());
         if (!koty.isEmpty()) {
                 isCatNew = false;
             }

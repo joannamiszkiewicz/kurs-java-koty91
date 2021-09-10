@@ -15,8 +15,11 @@ public class Kot {
     private float weight;
     private String catOwner;
 
+//    SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy.MM.dd");
 public Kot() {}
 
+/*   public Kot(String name, Date dateOfBirth, String weight, String catOwner) {
+  };*/
 public Kot(String name, Date dateOfBirth, float weight, String catOwner) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
@@ -45,6 +48,13 @@ public Kot(String name, Date dateOfBirth, float weight, String catOwner) {
     public String przedstawSie() {
         return "Nazywam się " + this.name + ". Moim opiekunem jest " + catOwner + ".";
     }
+//    public String przedstawSiePelne() {
+//        Date date2 = this.dateOfBirth;
+//        return przedstawSie() + " Moja data urodzenia to "+ sdf1.format(date2) +". Ważę " + this.weight + "kg.";
+//    }
+//    public String toString() {
+//        return(this.name + ", " + sdf1.format(this.dateOfBirth) + ", " + this.weight + ", " + this.catOwner);
+//    }
 
     public void setId(Long id) { this.id = id; }
 

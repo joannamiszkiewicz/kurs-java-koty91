@@ -49,12 +49,4 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 
-
-
-
-
-
-
-
-
 </beans>

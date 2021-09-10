@@ -20,7 +20,6 @@ public class KotyController {
 @Autowired
 public JpaKotDAO jpaKotDAO = new JpaKotDAO();
 
-// w tej metodzie przenoszę do widoku message
     @RequestMapping("/start")
     public String metoda(Model model) {
     model.addAttribute("message","Możesz dodać nowego kota, wyświetlić listę kotów i informacje o wybranym kocie");
@@ -45,10 +44,8 @@ public JpaKotDAO jpaKotDAO = new JpaKotDAO();
     @RequestMapping(value = "/dodajkota", method = RequestMethod.POST)
     public String dodajkota(@ModelAttribute("blank") @Valid KotDTO blank, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            //formularz nie jest uzupełniony prawidłowo
             return "formularz";
         } else {
-            //formularz wypełniony prawidłowo
             Kot cat=new Kot();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
             cat.setName(blank.getName());

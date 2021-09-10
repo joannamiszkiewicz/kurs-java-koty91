@@ -9,7 +9,7 @@ import javax.sql.DataSource;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.Map;
-//mam teraz tę adnotację w Jdbc i w Jpa, nie wiem czy tak może być
+
 @Configuration
 @ImportResource("classpath:beans.xml")
 public class JdbcKotDAO implements KotDAOInterf {
@@ -17,9 +17,6 @@ public class JdbcKotDAO implements KotDAOInterf {
     @Autowired
     private DataSource dataSource;
 
-//    String dbURL = "jdbc:oracle:thin:@localhost:1521/xepdb1";
-//    String userName = "kdk";
-//    String password = "kdk1";
     SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
 
     @Override
@@ -28,9 +25,8 @@ Kot kot = new Kot();
         try
     {
         Connection myConObject = dataSource.getConnection();
-     //        to, żeby sobie sprawdzić czy połączenie nastąpiło zanim się cokolwiek dalej zrobi
+
         if (myConObject != null) {
-//            System.out.println("Connected to Oracle Database server, to getKotById");
             String sqlSelect = "SELECT * FROM koty WHERE id = ?";
             PreparedStatement myStatObject = myConObject.prepareStatement(sqlSelect);
             myStatObject.setInt(1, jid);
@@ -53,12 +49,10 @@ return kot;
 
     @Override
     public boolean dodajKota(Kot kot) {
-//        System.out.println(kot.przedstawSiePelne());
         boolean isCatNew = true;
         try {
             Connection myConObject = dataSource.getConnection();
             if (myConObject != null) {
-//                System.out.println("Connected to Oracle Database server, to dodajKota");
                 String sqlCheck = "SELECT id FROM koty where name = ? and catOwner = ?";
                 PreparedStatement myStatObjec1 = myConObject.prepareStatement(sqlCheck);
                 myStatObjec1.setString(1, kot.getName());
@@ -85,12 +79,8 @@ return kot;
                             myStatObject3.setFloat(4, kot.getWeight());
                             myStatObject3.setString(5, kot.getCatOwner());
                             int rowsNr = myStatObject3.executeUpdate();
-//                            if (rowsNr > 0) {
-//                                System.out.println("A row has been inserted using preparedStatement");
-//                            }
                         } catch (IllegalArgumentException e) {
                             e.printStackTrace();
-//                            System.out.println("coś nie tak z datą nowego kota");
                         }
                     }
                 }
@@ -98,7 +88,6 @@ return kot;
             }
         }
         catch(SQLException e) {
-//                System.out.println("Opps, error in connecting or ... U know");
                 e.printStackTrace();
             }
         return isCatNew;
@@ -107,7 +96,6 @@ return kot;
         try{
             Connection myConObject = dataSource.getConnection();
             if (myConObject != null) {
-//                System.out.println("Connected to Oracle Database server, to getList");
                 String sqlSelect = "SELECT * FROM koty";
                 Statement myStatObject = myConObject.createStatement();
                 ResultSet myResultObject = myStatObject.executeQuery(sqlSelect);
@@ -124,7 +112,6 @@ return kot;
             }
         }
         catch (SQLException e) {
-//            System.out.println("Opps, error in connecting or ... U know what");
             e.printStackTrace();
         }
         return kotyHM;
@@ -138,7 +125,6 @@ return kot;
             myStatement.setInt(1, id);
             int rowsNr = myStatement.executeUpdate();
             if (rowsNr > 0) {
-//                System.out.println("A row has been deleted");
             }
         }
         catch (SQLException e) {

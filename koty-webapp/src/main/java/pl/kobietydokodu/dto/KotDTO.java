@@ -1,21 +1,23 @@
 package pl.kobietydokodu.dto;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.validation.constraints.Pattern;
 
 
 public class KotDTO {
 
-    @javax.validation.constraints.NotBlank(message="To pole nie może być puste")
+    @NotBlank(message="To pole nie może być puste")
     private String name;
 
-    @javax.validation.constraints.NotBlank(message="To pole nie może być puste")
+    @NotBlank(message="To pole nie może być puste")
     @Pattern(regexp = "20[0-9]{2}\\.(0[1-9]|1[0-2])\\.(0[1-9]|[1-2][0-9]|3[0-1])", message="Format daty 20yy.mm.dd")
     private String dateOfBirth;
 
     @NotZeroWeight
     private Float weight;
 
-    @javax.validation.constraints.NotBlank(message="To pole nie może być puste")
+    @NotBlank(message="To pole nie może być puste")
     private String catOwner;
 
     public KotDTO() {}
